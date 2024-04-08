@@ -3,6 +3,8 @@ import AboutPage from './components/AboutPage.vue';
 import HomePage from './components/HomePage.vue';
 import UserListPage from './components/UserListPage.vue';
 import MapPage from './components/MapPage.vue'
+import UserEditPage from './components/UserEdit.vue'
+import Form from './components/Form.vue';
 const routes = [
   {
     path: '/',
@@ -17,8 +19,16 @@ const routes = [
     component: UserListPage
   },
   {
+    path: '/user-edit',
+    component: UserEditPage
+  },
+  {
     path: '/map',
     component: MapPage
+  },
+  {
+    path: '/form',
+    component: Form
   }
 ];
 

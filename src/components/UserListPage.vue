@@ -2,16 +2,20 @@
 <template>
     <div>
       <h2>Products </h2>
+
+      <button @click="handleClick">Click me</button>
+
       <ul>
-        <li v-for="product in products" :key="product.id"> 
+        <!-- <li v-for="product in products" :key="product.id"> 
         {{ product.title }}
-        </li>
+        </li> -->
       </ul>
     </div>
   </template>
   
   <script>
-  import axios from 'axios';
+import router from '@/router';
+import axios from 'axios';
 
   export default {
     name: 'UserListPage',
@@ -26,7 +30,7 @@
     methods: {
 
       fetchProducts(){
-        axios.get('https://jsonplaceholder.typicode.com/todos')
+        axios.get('http://localhost:3000/products')
           .then(res=>{
             console.log("data response ",res)
             this.products=res.data
@@ -34,8 +38,13 @@
           .catch(error=>{
             console.error('Error Fetching product :',error)
           })
-      }
+      },
 
+
+      handleClick(){
+        console.log("go other page")
+        router.push('/user-edit')
+      }
 
 
       
